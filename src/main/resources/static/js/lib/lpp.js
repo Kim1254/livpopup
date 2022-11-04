@@ -27,7 +27,10 @@ var LPP = (function () {
 					if (xhr.status != 200)
 					{
 						console.log("Error:", xhr.readyState, xhr.status);
-						this._status = -1;
+						this._status = 3;
+						
+						if (callback != undefined)
+							callback(undefined);
 					}
 					
 					var data = xhr.responseText;
@@ -77,9 +80,7 @@ var LPP = (function () {
 					}
 					
 					if (callback != undefined)
-						callback(xhr);
-					
-					console.log(this._model);
+						callback(this);
 				}
 				
 				xhr.send(null);

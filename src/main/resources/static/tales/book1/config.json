@@ -6,35 +6,35 @@
 		{
 			"type": 0,
 			"color": "404040",
-			"additive": 0.5
+			"additive": 1
 		},
 		"2":
 		{
 			"type": 1,
 			"color": "c4c4c4",
 			"position": [0, 3000, 5000],
-			"additive": 0.5
+			"additive": 1
 		},
 		"3":
 		{
 			"type": 1,
 			"color": "c4c4c4",
 			"position": [5000, 1000, 0],
-			"additive": 0.5
+			"additive": 1
 		},
 		"4":
 		{
 			"type": 1,
 			"color": "c4c4c4",
 			"position": [0, 1000, -5000],
-			"additive": 0.5
+			"additive": 1
 		},
 		"5":
 		{
 			"type": 1,
 			"color": "c4c4c4",
 			"position": [-5000, 3000, 5000],
-			"additive": 0.5
+			"additive": 1
 		}
 	},
 	"model":
@@ -50,56 +50,56 @@
 		{
 			"path": "./gltf/BrickHouse/scene.gltf",
 			"scale": 1.0,
-			"position": [0, 0, 0],
+			"position": [12, 551, 23],
 			"animation": ["BrickAppear"]
 		},
 		"MomPig":
 		{
 			"path": "./gltf/MomPig/scene.gltf",
 			"scale": 1.0,
-			"position": [0, 0, 0],
+			"position": [55, 61, 11],
 			"animation": ["MomPigAppear"]
 		},
 		"Pig1":
 		{
 			"path": "./gltf/Pig1/scene.gltf",
 			"scale": 1.0,
-			"position": [0, 0, 0],
+			"position": [44, 21, 64],
 			"animation": ["Pig1Appear"]
 		},
 		"Pig2":
 		{
 			"path": "./gltf/Pig2/scene.gltf",
 			"scale": 1.0,
-			"position": [0, 0, 0],
+			"position": [55, 66, 11],
 			"animation": ["Pig2Appear"]
 		},
 		"Pig3":
 		{
 			"path": "./gltf/Pig3/scene.gltf",
 			"scale": 1.0,
-			"position": [0, 0, 0],
+			"position": [15, 51, 62],
 			"animation": ["Pig3Appear"]
 		},
 		"StrawHouse":
 		{
 			"path": "./gltf/StrawHouse/scene.gltf",
 			"scale": 1.0,
-			"position": [0, 0, 0],
+			"position": [51, 21, 33],
 			"animation": ["StrawAppear", "StrawBreak"]
 		},
 		"Wolf":
 		{
 			"path": "./gltf/Wolf/scene.gltf",
 			"scale": 1.0,
-			"position": [0, 0, 0],
+			"position": [77, 66, 44],
 			"animation": ["WolfAppear"]
 		},
 		"WoodHouse":
 		{
 			"path": "./gltf/WoodHouse/scene.gltf",
 			"scale": 1.0,
-			"position": [0, 0, 0],
+			"position": [99, 74, 21],
 			"animation": ["WoodAppear", "WoodBreak"]
 		}
 	}

@@ -3,99 +3,134 @@ window.addEventListener('resize', resizeEvent);
 
 var canvas;
 
+var painting = false;
+
 var renderer;
 var camera;
 var controls;
 
 var repaint = false;
 
-var timer_list = [];
-
 window.onload = function init()
 {
 	canvas = document.getElementById("gl-canvas");
 	
 	var parser = new LPP.Parser("./tales/book1/config.json");
-	parser.open();
+	parser.open(oncomplete);
 
 	resizeEvent();
-
-	const scene = new THREE.Scene();
-	scene.background = new THREE.Color(0x000000);
-	
-	var li = 1;
-
-	hlight = new THREE.AmbientLight(0x404040, li);
-	scene.add(hlight);
-	
-	light = new THREE.PointLight(0xc4c4c4, li);
-	light.position.set(0,3000,5000);
-	scene.add(light);
-
-	light2 = new THREE.PointLight(0xc4c4c4, li);
-	light2.position.set(5000,1000,0);
-	scene.add(light2);
-
-	light3 = new THREE.PointLight(0xc4c4c4, li);
-	light3.position.set(0,1000,-5000);
-	scene.add(light3);
-
-	light4 = new THREE.PointLight(0xc4c4c4, li);
-	light4.position.set(-5000,3000,5000);
-	scene.add(light4);
-	
-	const clock = new THREE.Clock();
-	
-	const loader = new THREE.GLTFLoader();
-	loader.load('./gltf/book/scene.gltf', function(gltf) {
-		model = gltf.scene.children[0];
-		model.scale.set(1.0, 1.0, 1.0);
-		
-		mixer = new THREE.AnimationMixer(gltf.scene);
-		
-		const clip = THREE.AnimationClip.findByName(gltf.animations, 'BookOpen');
-		const act = mixer.clipAction(clip);
-		
-		act.setLoop(0, 2);
-		act.play();
-		
-		scene.add(gltf.scene);
-		animate();
-	}, undefined, function (error) {
-		console.error(error);
-	});
-
-	function animate() {
-		// rotate along with X-axis
-		renderer.render(scene, camera);
-		requestAnimationFrame(animate);
-		
-		controls.update();
-		
-		mixer.update(clock.getDelta());
-	}
 }
 
 function resizeEvent() {
 	var width = window.innerWidth;
 	var height = window.innerHeight;
 	
-	if (canvas.width != width || canvas.height != height)
+	if (repaint || canvas.width != width || canvas.height != height)
 	{
 		canvas.width = width;
 		canvas.height = height;
+		
+		if (!painting)
+			return;
 		
 		renderer = new THREE.WebGLRenderer({canvas});
 		renderer.setSize(width, height);
 
 		camera = new THREE.PerspectiveCamera(45, width / height, 0.01, 1000);
 		camera.rotation.y = 0.25 * Math.PI;
-		camera.position.x = 15;
-		camera.position.y = 15;
-		camera.position.z = 15;
+		camera.position.x = 0;
+		camera.position.y = 50;
+		camera.position.z = 0;
 
 		controls = new THREE.OrbitControls(camera, renderer.domElement);
 		
-		repaint = true;
+		repaint = false;
 	}
+}
+
+function oncomplete(parser) {
+	if (parser == undefined) // fail
+	{
+		return;
+	}
+
+	painting = repaint = true;
+	resizeEvent();
+	
+	const scene = new THREE.Scene();
+	scene.background = new THREE.Color(parser._bg);
+	
+	for (var i = 0; i < parser._light.length; i++)
+	{
+		var data = parser._light[i];
+		
+		var light;
+		if (data.type == 0)
+			light = new THREE.AmbientLight(data.color, data.additive);
+		else if (data.type == 1)
+			light = new THREE.PointLight(data.color, data.additive);
+		
+		if (data.position != undefined)
+			light.position.set(data.position[0], data.position[1], data.position[2]);
+		
+		scene.add(light);
+	}
+	
+	const clock = new THREE.Clock();
+	const loader = new THREE.GLTFLoader();
+	
+	var mixer_list = [];
+	
+	for (var i = 0; i < parser._model.length; i++)
+	{
+		loader.load(parser._model[i].path, function(gltf) {
+			var data;
+			for (var j = 0; j < parser._model.length; j++)
+			{
+				data = parser._model[j];
+				if (data.path.includes(gltf.parser.options.path))
+					break;
+				
+				if (j == parser._model.length - 1)
+					return;
+			}
+			
+			model = gltf.scene.children[0];
+			model.scale.set(data.scale, data.scale, data.scale);
+			
+			if (data.position != undefined)
+				model.position.set(data.position[0], data.position[1], data.position[2]);
+			
+			var mixer = new THREE.AnimationMixer(gltf.scene);
+			
+			const clip = THREE.AnimationClip.findByName(gltf.animations, data.animation[0]);
+			const act = mixer.clipAction(clip);
+			
+			var ran = 25 + parseInt(Math.random() * 10);
+			act.setLoop(0, ran);
+			act.play();
+			
+			mixer_list.push(mixer);
+			
+			scene.add(gltf.scene);
+		}, undefined, function (error) {
+			console.error(error);
+		});
+	}
+	
+	console.log(scene.children);
+	
+	function animate() {
+		delta = clock.getDelta();
+		for (var i = 0; i < mixer_list.length; i++)
+		{
+			mixer_list[i].update(delta);
+		}
+		renderer.render(scene, camera);
+		requestAnimationFrame(animate);
+		
+		controls.update();
+	}
+	
+	animate();
 }
