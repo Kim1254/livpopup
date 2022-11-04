@@ -1,0 +1,106 @@
+{
+	"background": "000000",
+	"light":
+	{
+		"1":
+		{
+			"type": 0,
+			"color": "404040",
+			"additive": 0.5
+		},
+		"2":
+		{
+			"type": 1,
+			"color": "c4c4c4",
+			"position": [0, 3000, 5000],
+			"additive": 0.5
+		},
+		"3":
+		{
+			"type": 1,
+			"color": "c4c4c4",
+			"position": [5000, 1000, 0],
+			"additive": 0.5
+		},
+		"4":
+		{
+			"type": 1,
+			"color": "c4c4c4",
+			"position": [0, 1000, -5000],
+			"additive": 0.5
+		},
+		"5":
+		{
+			"type": 1,
+			"color": "c4c4c4",
+			"position": [-5000, 3000, 5000],
+			"additive": 0.5
+		}
+	},
+	"model":
+	{
+		"Book":
+		{
+			"path": "./gltf/book/scene.gltf",
+			"scale": 1.0,
+			"position": [0, 0, 0],
+			"animation": ["BookOpen"]
+		},
+		"BrickHouse":
+		{
+			"path": "./gltf/BrickHouse/scene.gltf",
+			"scale": 1.0,
+			"position": [0, 0, 0],
+			"animation": ["BrickAppear"]
+		},
+		"MomPig":
+		{
+			"path": "./gltf/MomPig/scene.gltf",
+			"scale": 1.0,
+			"position": [0, 0, 0],
+			"animation": ["MomPigAppear"]
+		},
+		"Pig1":
+		{
+			"path": "./gltf/Pig1/scene.gltf",
+			"scale": 1.0,
+			"position": [0, 0, 0],
+			"animation": ["Pig1Appear"]
+		},
+		"Pig2":
+		{
+			"path": "./gltf/Pig2/scene.gltf",
+			"scale": 1.0,
+			"position": [0, 0, 0],
+			"animation": ["Pig2Appear"]
+		},
+		"Pig3":
+		{
+			"path": "./gltf/Pig3/scene.gltf",
+			"scale": 1.0,
+			"position": [0, 0, 0],
+			"animation": ["Pig3Appear"]
+		},
+		"StrawHouse":
+		{
+			"path": "./gltf/StrawHouse/scene.gltf",
+			"scale": 1.0,
+			"position": [0, 0, 0],
+			"animation": ["StrawAppear", "StrawBreak"]
+		},
+		"Wolf":
+		{
+			"path": "./gltf/Wolf/scene.gltf",
+			"scale": 1.0,
+			"position": [0, 0, 0],
+			"animation": ["WolfAppear"]
+		},
+		"WoodHouse":
+		{
+			"path": "./gltf/WoodHouse/scene.gltf",
+			"scale": 1.0,
+			"position": [0, 0, 0],
+			"animation": ["WoodAppear", "WoodBreak"]
+		}
+	}
+}

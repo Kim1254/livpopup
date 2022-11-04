@@ -1,0 +1,334 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Cone"
+        }
+    ],
+    "animations" : [
+        {
+            "channels" : [
+                {
+                    "sampler" : 0,
+                    "target" : {
+                        "node" : 0,
+                        "path" : "weights"
+                    }
+                }
+            ],
+            "name" : "StrawAppear",
+            "samplers" : [
+                {
+                    "input" : 10,
+                    "interpolation" : "LINEAR",
+                    "output" : 11
+                }
+            ]
+        },
+        {
+            "channels" : [
+                {
+                    "sampler" : 0,
+                    "target" : {
+                        "node" : 0,
+                        "path" : "weights"
+                    }
+                }
+            ],
+            "name" : "StrawBreak",
+            "samplers" : [
+                {
+                    "input" : 10,
+                    "interpolation" : "LINEAR",
+                    "output" : 12
+                }
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Material.001",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "extras" : {
+                "targetNames" : [
+                    "Key 1",
+                    "Key 2",
+                    "Key 3"
+                ]
+            },
+            "name" : "Cone",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0,
+                    "targets" : [
+                        {
+                            "POSITION" : 4,
+                            "NORMAL" : 5
+                        },
+                        {
+                            "POSITION" : 6,
+                            "NORMAL" : 7
+                        },
+                        {
+                            "POSITION" : 8,
+                            "NORMAL" : 9
+                        }
+                    ]
+                }
+            ],
+            "weights" : [
+                0,
+                0,
+                0
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "strawhouse",
+            "uri" : "textures/strawhouse.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 422,
+            "max" : [
+                9.114761352539062,
+                17.17714500427246,
+                11.196447372436523
+            ],
+            "min" : [
+                -9.114761352539062,
+                0.0016802549362182617,
+                -9.427929878234863
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 422,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 422,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 636,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 422,
+            "max" : [
+                9.210648536682129,
+                4.76837158203125e-07,
+                14.345343589782715
+            ],
+            "min" : [
+                -9.210649490356445,
+                -10.249987602233887,
+                -9.98290729522705
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 422,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 422,
+            "max" : [
+                30.624252319335938,
+                29.329797744750977,
+                -604.8262939453125
+            ],
+            "min" : [
+                -18.579078674316406,
+                9.83908748626709,
+                -691.9697875976562
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5126,
+            "count" : 422,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 422,
+            "max" : [
+                10.511201858520508,
+                8.922796249389648,
+                -951.5322875976562
+            ],
+            "min" : [
+                -8.618997573852539,
+                -7.318472862243652,
+                -969.3624877929688
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 422,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 61,
+            "max" : [
+                2.5
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5126,
+            "count" : 183,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 12,
+            "componentType" : 5126,
+            "count" : 183,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 5064,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5064,
+            "byteOffset" : 5064
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3376,
+            "byteOffset" : 10128
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1272,
+            "byteOffset" : 13504
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5064,
+            "byteOffset" : 14776
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5064,
+            "byteOffset" : 19840
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5064,
+            "byteOffset" : 24904
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5064,
+            "byteOffset" : 29968
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5064,
+            "byteOffset" : 35032
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5064,
+            "byteOffset" : 40096
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 244,
+            "byteOffset" : 45160
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 732,
+            "byteOffset" : 45404
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 732,
+            "byteOffset" : 46136
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 46868,
+            "uri" : "scene.bin"
+        }
+    ]
+}
