@@ -5,7 +5,7 @@ var LPP = (function () {
 	
 	// public
 	
-	_utils.Parser = class ConfigParser {
+	_utils.ConfigParser = class ConfigParser {
 		constructor(filepath)
 		{
 			this._path = filepath;
@@ -70,12 +70,40 @@ var LPP = (function () {
 						{
 							var model_elem = model[keys[i]];
 							var elem = {
+								name: keys[i],
 								path: model_elem['path'],
 								scale: model_elem['scale'],
 								position: model_elem['position'],
 								animation: model_elem['animation']
 							};
 							this._model.push(elem);
+						}
+					}
+					
+					this._scenario = [];
+					
+					function read_scene(data)
+					{
+						var keys = Object.keys(data);
+						
+						if (keys == undefined)
+							return [];
+						
+						var scenario = [];
+						for (var i = 0; i < keys.length; i++)
+							scenario.push([false].concat(data[keys[i]]));
+						
+						return scenario;
+					}
+					
+					var scene = json['scenario'];
+					if (scene != undefined)
+					{
+						var keys = Object.keys(scene);
+						for (var i = 0; i < keys.length; i++)
+						{
+							var elem = read_scene(scene[keys[i]]);
+							this._scenario.push(elem);
 						}
 					}
 					

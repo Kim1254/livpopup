@@ -42,65 +42,87 @@
 		"Book":
 		{
 			"path": "./gltf/book/scene.gltf",
-			"scale": 1.0,
+			"scale": [1.0, 1.0, 1.0],
 			"position": [0, 0, 0],
 			"animation": ["BookOpen"]
-		},
-		"BrickHouse":
-		{
-			"path": "./gltf/BrickHouse/scene.gltf",
-			"scale": 1.0,
-			"position": [12, 551, 23],
-			"animation": ["BrickAppear"]
 		},
 		"MomPig":
 		{
 			"path": "./gltf/MomPig/scene.gltf",
-			"scale": 1.0,
+			"scale": [1.0, 1.0, 1.0],
 			"position": [55, 61, 11],
 			"animation": ["MomPigAppear"]
 		},
 		"Pig1":
 		{
 			"path": "./gltf/Pig1/scene.gltf",
-			"scale": 1.0,
+			"scale": [1.0, 1.0, 1.0],
 			"position": [44, 21, 64],
 			"animation": ["Pig1Appear"]
 		},
 		"Pig2":
 		{
 			"path": "./gltf/Pig2/scene.gltf",
-			"scale": 1.0,
+			"scale": [1.0, 1.0, 1.0],
 			"position": [55, 66, 11],
 			"animation": ["Pig2Appear"]
 		},
 		"Pig3":
 		{
 			"path": "./gltf/Pig3/scene.gltf",
-			"scale": 1.0,
+			"scale": [1.0, 1.0, 1.0],
 			"position": [15, 51, 62],
 			"animation": ["Pig3Appear"]
-		},
-		"StrawHouse":
-		{
-			"path": "./gltf/StrawHouse/scene.gltf",
-			"scale": 1.0,
-			"position": [51, 21, 33],
-			"animation": ["StrawAppear", "StrawBreak"]
 		},
 		"Wolf":
 		{
 			"path": "./gltf/Wolf/scene.gltf",
-			"scale": 1.0,
+			"scale": [1.0, 1.0, 1.0],
 			"position": [77, 66, 44],
 			"animation": ["WolfAppear"]
+		},
+		"StrawHouse":
+		{
+			"path": "./gltf/StrawHouse/scene.gltf",
+			"scale": [1.0, 1.0, 1.0],
+			"position": [51, 21, 33],
+			"animation": ["StrawAppear", "StrawBreak"]
 		},
 		"WoodHouse":
 		{
 			"path": "./gltf/WoodHouse/scene.gltf",
-			"scale": 1.0,
+			"scale": [1.0, 1.0, 1.0],
 			"position": [99, 74, 21],
 			"animation": ["WoodAppear", "WoodBreak"]
+		},
+		"BrickHouse":
+		{
+			"path": "./gltf/BrickHouse/scene.gltf",
+			"scale": [1.0, 1.0, 1.0],
+			"position": [12, 25, 23],
+			"animation": ["BrickAppear"]
+		}
+	},
+	"scenario":
+	{
+		"scene0":
+		{
+			"0":
+			{
+				"target": "Book",
+				"visible": true,
+				"scale": [0.5, 0.5, 0.5],
+				"position": [0, 0, 0],
+				"rotation": [0, 0, 0],
+				"duration": 2,
+				"animation": "BookOpen",
+				"animloop": 0,
+				"finish_restore": true,
+				"framerate": 1.0,
+				"fade": [false, true, true, true, true],
+				"time": 5.0,
+				"loop": false
+			}
 		}
 	}
 }
