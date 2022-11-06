@@ -2,10 +2,29 @@
 <html>
     <head>
 		<style>
-			canvas#gl-canvas {
-				margin-left: -8px;
-				margin-top: -9px;
-				margin-bottom: -12px;
+			* {
+				outline: none;
+				padding: 0;
+				margin: 0;
+			}
+			.btnclass {
+				position:fixed;
+				background-color:rgba(165, 50, 100, 0.7);
+				width: 40px;
+				height: 40px;
+				top: 90%;
+				font-size: 20px;
+				color: white;
+			}
+			.btnclass:hover{
+				color:#FF0000;
+			}
+			#btn01 {
+				left: 47%;
+				display: none;
+			}
+			#btn02 {
+				left: 50%;
 			}
 		</style>
         <script type="text/javascript" src="js/lib/three.min.js"></script>
@@ -16,8 +35,10 @@
         <script type="text/javascript" src="js/render.js"></script>
     </head>
     <body>
-        <canvas id="gl-canvas" width="1920" height="1080">
+        <canvas id="gl-canvas" width="640" height="480">
             Oops ... your browser doesn't support the HTML5 canvas element
         </canvas>
+		<button type="button" class="btnclass" id="btn01">◀</button>
+		<button type="button" class="btnclass" id="btn02">▶</button>
     </body>
 </html>

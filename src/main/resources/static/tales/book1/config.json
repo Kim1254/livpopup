@@ -1,4 +1,4 @@
-{
+﻿{
 	"background": "000000",
 	"light":
 	{
@@ -27,7 +27,7 @@
 			"type": 1,
 			"color": "c4c4c4",
 			"position": [0, 1000, -5000],
-			"additive": 1
+			"additive": 0.1
 		},
 		"5":
 		{
@@ -42,65 +42,75 @@
 		"Book":
 		{
 			"path": "./gltf/book/scene.gltf",
-			"scale": [1.0, 1.0, 1.0],
-			"position": [0, 0, 0],
 			"animation": ["BookOpen"]
 		},
 		"MomPig":
 		{
 			"path": "./gltf/MomPig/scene.gltf",
-			"scale": [1.0, 1.0, 1.0],
-			"position": [55, 61, 11],
 			"animation": ["MomPigAppear"]
 		},
 		"Pig1":
 		{
 			"path": "./gltf/Pig1/scene.gltf",
-			"scale": [1.0, 1.0, 1.0],
-			"position": [44, 21, 64],
 			"animation": ["Pig1Appear"]
 		},
 		"Pig2":
 		{
 			"path": "./gltf/Pig2/scene.gltf",
-			"scale": [1.0, 1.0, 1.0],
-			"position": [55, 66, 11],
 			"animation": ["Pig2Appear"]
 		},
 		"Pig3":
 		{
 			"path": "./gltf/Pig3/scene.gltf",
-			"scale": [1.0, 1.0, 1.0],
-			"position": [15, 51, 62],
 			"animation": ["Pig3Appear"]
 		},
 		"Wolf":
 		{
 			"path": "./gltf/Wolf/scene.gltf",
-			"scale": [1.0, 1.0, 1.0],
-			"position": [77, 66, 44],
 			"animation": ["WolfAppear"]
 		},
 		"StrawHouse":
 		{
 			"path": "./gltf/StrawHouse/scene.gltf",
-			"scale": [1.0, 1.0, 1.0],
-			"position": [51, 21, 33],
 			"animation": ["StrawAppear", "StrawBreak"]
 		},
 		"WoodHouse":
 		{
 			"path": "./gltf/WoodHouse/scene.gltf",
-			"scale": [1.0, 1.0, 1.0],
-			"position": [99, 74, 21],
 			"animation": ["WoodAppear", "WoodBreak"]
 		},
 		"BrickHouse":
 		{
 			"path": "./gltf/BrickHouse/scene.gltf",
-			"scale": [1.0, 1.0, 1.0],
-			"position": [12, 25, 23],
 			"animation": ["BrickAppear"]
+		},
+		"Forest":
+		{
+			"path": "./gltf/Forest/scene.gltf"
+		}
+	},
+	"font":
+	{
+		"Bahnschrift": "./font/Bahnschrift_Regular.json",
+		"DoHyeon": "./font/Do Hyeon_Regular.json"
+	},
+	"text":
+	{
+		"TextTitle":
+		{
+			"font": "Bahnschrift",
+			"text": "The Little Three Pigs",
+			"size": 2,
+			"height": 0.1,
+			"color": "ffffff"
+		},
+		"Text01":
+		{
+			"font": "Bahnschrift",
+			"text": "In a forest,\nthere were three little pigs.",
+			"size": 1,
+			"height": 0.1,
+			"color": "ffffff"
 		}
 	},
 	"scenario":
@@ -109,19 +119,149 @@
 		{
 			"0":
 			{
+				"target": "camera",
+				"position": [0, 50, 0],
+				"rotation": [0, 0, 0],
+				"duration": 0,
+				"time": 0.0
+			},
+			"1":
+			{
+				"target": "TextTitle",
+				"visible": true,
+				"scale": [1, 1, 1],
+				"position": [-15, 10, 0],
+				"rotation": [-90, 0, 0],
+				"duration": 1.0,
+				"fade": [true],
+				"time": 1.0
+			},
+			"2":
+			{
 				"target": "Book",
 				"visible": true,
-				"scale": [0.5, 0.5, 0.5],
+				"scale": [1, 1, 1],
+				"position": [-10, 0, 0],
+				"time": 1.0
+			}
+		},
+		"scene1":
+		{
+			"1":
+			{
+				"target": "TextTitle",
+				"visible": false,
+				"duration": 1,
+				"fade": [true],
+				"time": 0.0,
+				"loop": false
+			},
+			"2":
+			{
+				"target": "Book",
+				"scale": [0.75, 0.75, 0.75],
 				"position": [0, 0, 0],
 				"rotation": [0, 0, 0],
 				"duration": 2,
 				"animation": "BookOpen",
 				"animloop": 0,
-				"finish_restore": true,
+				"finish_restore": false,
 				"framerate": 1.0,
-				"fade": [false, true, true, true, true],
-				"time": 5.0,
+				"fade": [false, true, true, true],
+				"time": 1.0,
 				"loop": false
+			},
+			"3":
+			{
+				"target": "camera",
+				"position": [-1, 9, 24],
+				"rotation": [-4, 0, 0],
+				"fade": [false, true, true],
+				"duration": 2,
+				"time": 1.0,
+				"fix": true,
+				"loop": false
+			},
+			"4":
+			{
+				"target": "Forest",
+				"visible": true,
+				"scale": [4, 4, 4],
+				"position": [0, -20, 0],
+				"rotation": [-90, 0, 0],
+				"time": 4.0
+			},
+			"5":
+			{
+				"target": "Forest",
+				"visible": true,
+				"position": [0, 4, 0],
+				"fade": [false, true],
+				"duration": 0.5,
+				"time": 4.1
+			},
+			"6":
+			{
+				"target": "Text01",
+				"visible": false,
+				"scale": [0.5, 0.5, 0.5],
+				"position": [-10, 10, -5],
+				"rotation": [4, 0, 0],
+				"time": 4.0
+			},
+			"7":
+			{
+				"target": "Text01",
+				"visible": true,
+				"position": [-10, 11.5, -5],
+				"fade": [true, true],
+				"duration": 1.0,
+				"time": 4.1
+			},
+			"8":
+			{
+				"target": "Pig1",
+				"visible": true,
+				"scale": [1, 1, 1],
+				"position": [-1, 2, -8],
+				"rotation": [0, 0, 0],
+				"duration": 0,
+				"animation": "Pig1Appear",
+				"animloop": 0,
+				"finish_restore": false,
+				"framerate": 3.0,
+				"fade": [false, true, true, true],
+				"time": 4.0
+			},
+			"9":
+			{
+				"target": "Pig2",
+				"visible": true,
+				"scale": [1, 1, 1],
+				"position": [3, 2, -8],
+				"rotation": [0, 0, 0],
+				"duration": 0,
+				"animation": "Pig2Appear",
+				"animloop": 0,
+				"finish_restore": false,
+				"framerate": 3.0,
+				"fade": [false, true, true, true],
+				"time": 4.0
+			},
+			"10":
+			{
+				"target": "Pig3",
+				"visible": true,
+				"scale": [1, 1, 1],
+				"position": [-5, 2, -8],
+				"rotation": [0, 0, 0],
+				"duration": 0,
+				"animation": "Pig3Appear",
+				"animloop": 0,
+				"finish_restore": false,
+				"framerate": 3.0,
+				"fade": [false, true, true, true],
+				"time": 4.0
 			}
 		}
 	}

@@ -16,6 +16,7 @@ var LPP = (function () {
 		
 		open(callback = undefined)
 		{
+			this._status = 1;
 			if (xhr != undefined)
 			{
 				xhr.open('get', this._path, true);
@@ -30,7 +31,10 @@ var LPP = (function () {
 						this._status = 3;
 						
 						if (callback != undefined)
+						{
 							callback(undefined);
+							return;
+						}
 					}
 					
 					var data = xhr.responseText;
@@ -72,11 +76,46 @@ var LPP = (function () {
 							var elem = {
 								name: keys[i],
 								path: model_elem['path'],
-								scale: model_elem['scale'],
-								position: model_elem['position'],
 								animation: model_elem['animation']
 							};
 							this._model.push(elem);
+						}
+					}
+					
+					this._font = [];
+					
+					var font = json['font'];
+					if (font != undefined)
+					{
+						var keys = Object.keys(font);
+						for (var i = 0; i < keys.length; i++)
+						{
+							var obj = {
+								name: keys[i],
+								path: font[keys[i]]
+							};
+							this._font.push(obj);
+						}
+					}
+					
+					this._text = [];
+					
+					var texts = json['text'];
+					if (texts != undefined)
+					{
+						var keys = Object.keys(texts);
+						for (var i = 0; i < keys.length; i++)
+						{
+							var data = texts[keys[i]];
+							var obj = {
+								name: keys[i],
+								font: data['font'],
+								text: data['text'],
+								size: data['size'],
+								height: data['height'],
+								color: parseInt(data['color'], 16)
+							};
+							this._text.push(obj);
 						}
 					}
 					
@@ -112,7 +151,6 @@ var LPP = (function () {
 				}
 				
 				xhr.send(null);
-				this._status = 1;
 			}
 		}
 		

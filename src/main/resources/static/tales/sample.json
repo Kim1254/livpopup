@@ -1,0 +1,95 @@
+﻿{
+	"background": "000000",
+	"light":
+	{
+		"1": # should be a unique name
+		{
+			"type": 0, # 0, 1
+			"color": "ffffff", #RGB
+			"additive": 0.25 # 0~1
+		}
+	},
+	"model":
+	{
+		"Model1": # Should be unique
+		{
+			"path": "./Sample_gltf/Sample_Name/scene.gltf", #Path
+			"animation": ["Sequence1"] #Animation model contains
+		}
+	},
+	"font":
+	{
+		# Name: Path
+		"Sample1": "./Sample_Path/Sample_Font.json"
+	},
+	"text":
+	{
+		"Text1": # Name - should be unique
+		{
+			"font": "Sample1", # Font on above font table
+			"text": "Text", # Text to print
+			"size": 2, # Size
+			"height": 0.1, # Height
+			"color": "ffffff" # RGB
+		}
+	},
+	"scenario":
+	{
+		"scene0": # Scene
+		{
+			"0":
+			{
+				# Ex1. Make a event for mesh (model)
+				"target": "Model1", # Target Name
+				"visible": true, # visiblity
+				"scale": [0.5, 0.5, 0.5], # scale
+				"position": [-2, 10, 0], # position
+				"rotation": [-10, 0, 0], # Angle (degree)
+				"animation": "Sequence1", # Animation to play
+				"animloop": 0, # Loop count (-1 = inf)
+				"finish_restore": true, # Restore the 0 frame when the animation ended
+				"framerate": 1.0, # TimeScale of animation
+				"duration": 1.0, # Duration (time to proceed)
+				"fade": [true, true, true, true], # Fade effect [Visiblity, Position, Rotation, Scale]
+				# Note: Model with no material infomation cannot make fading on visiblity
+				"time": 1.0 # Time of event starts,
+				"loop": false # Loop the event
+			},
+			"1":
+			{
+				# Ex2. Make a event for mesh (text) - text has no animation
+				"target": "Text1", # Target Name
+				"visible": true,
+				"scale": [0.5, 0.5, 0.5],
+				"position": [-2, 10, 0],
+				"rotation": [-10, 0, 0],
+				"duration": 1.0,
+				"fade": [true, true, true, true],
+				"time": 1.0
+			},
+			"2":
+			{
+				# Ex3. Make a effect - noise on scale, position, rotation, additive calcuation.
+				"target": "effect", # Target should be 'effect'
+				"noise_scale": [-0.25, 0.25],
+				"noise_position": [-0.25, 0.25],
+				"noise_rotation": [-0.25, 0.25],
+				"exclude": [false, true], # Exclude target: [model, text]
+				"time": 3.0,
+				"duration": 1,
+				"loop": false
+			},
+			"3":
+			{
+				# Ex4. Make a event for camera - only supports position, rotation
+				"target": "camera", # Target should be 'camera'
+				"position": [-1, 10, 30],
+				"rotation": [-15, 0, 0],
+				"fade": [false, true, true], # Fading effect [N/A, Position, Rotation]
+				"time": 4.0,
+				"duration": 2,
+				"loop": false
+			}
+		}
+	}
+}
