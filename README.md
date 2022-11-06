@@ -3,7 +3,6 @@ A WebGL website for displaying a animated popup book
 
 Libraries Used:
 - [Three.js](https://github.com/mrdoob/three.js/)
-- [FOLD](https://github.com/edemaine/fold)
 
 Contributors:
 - [Kim Kyeongmin](https://github.com/KyeongMin5307)
