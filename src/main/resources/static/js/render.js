@@ -43,7 +43,6 @@ window.onload = function init()
 	}
 	document.getElementById("btn02").onclick = function(event)
 	{
-		console.log(parser._status);
 		if (parser == undefined || parser._status != 2)
 			return;
 		
@@ -51,6 +50,7 @@ window.onload = function init()
 		{
 			flTime = 0.0;
 			iScene += 1;
+			console.log(iScene);
 		}
 	};
 
@@ -400,20 +400,16 @@ function oncomplete(result)
 		{
 			const clip = THREE.AnimationClip.findByName(gltf.animations, data.animation);
 			const act = gltf.mixer.clipAction(clip);
-			if (data.animtime == undefined)
-			{
-				if (data.animloop == -1)
-					act.setLoop(1);
-				else
-					act.setLoop(0, data.animloop);
-				
-				act.clampWhenFinished = !data.finish_restore;
-				act.timeScale = data.framerate;
-				
-				act.play();
-				
-				data.animtime = flTime + act._clip.duration / act.timeScale;
-			}
+			
+			if (data.animloop == -1)
+				act.setLoop(1);
+			else
+				act.setLoop(0, data.animloop);
+			
+			act.clampWhenFinished = !data.finish_restore;
+			act.timeScale = data.framerate;
+			
+			act.play();
 		}
 		
 		if (proceed == 1.0)
